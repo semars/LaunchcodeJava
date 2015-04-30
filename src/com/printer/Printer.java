@@ -1,8 +1,8 @@
-package com.semars.printer;
+package com.printer;
 
 /**
  * Created by semar on 4/25/15.
  */
-public interface Printer {
+interface Printer {
     void Print(String output);
 }

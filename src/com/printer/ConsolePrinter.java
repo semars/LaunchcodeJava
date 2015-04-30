@@ -1,4 +1,4 @@
-package com.semars.printer;
+package com.printer;
 
 /**
  * Created by semar on 4/25/15.

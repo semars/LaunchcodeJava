@@ -1,5 +1,5 @@
-import com.semars.printer.ConsolePrinter;
-import com.semars.printer.FilePrinter;
+import com.printer.ConsolePrinter;
+import com.printer.FilePrinter;
 
 import java.util.Scanner;
 
