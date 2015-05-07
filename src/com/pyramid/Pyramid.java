@@ -1,24 +1,15 @@
 package com.pyramid;
 
-import java.util.Scanner;
-import com.printer.ConsolePrinter;
-import com.printer.FilePrinter;
-
-
 public class Pyramid {
-    Scanner rows_scan = new Scanner(System.in);
-    public int rows;
+    private int rows;
+    private StringBuilder output = new StringBuilder();
 
-    public Pyramid()
-    {
-        do {
-            System.out.print("Rows: ");
-            rows = rows_scan.nextInt();
-        } while (rows < 1 || rows > 23);
+    public Pyramid(int r) {
+        this.rows = r;
+        makePyramid(rows);
     }
 
-    public String toString() {
-        StringBuilder output = new StringBuilder();
+    private String makePyramid(int rows) {
         int blocks;
         int spaces;
         for (int i = 1; i <= rows; i++) {
@@ -34,24 +25,8 @@ public class Pyramid {
         }
         return output.toString();
     }
-
-    public void printerInput() {
-        Scanner printInput_scan = new Scanner(System.in);
-        int printInput;
-        do {
-            System.out.println("Enter '1' to print to console or '2' to print to file.");
-            printInput = printInput_scan.nextInt();
-        } while (printInput != 1 && printInput != 2);
-
-        // print to console
-        if (printInput == 1) {
-            ConsolePrinter printOutput = new ConsolePrinter();
-            printOutput.Print(this);
-        }
-        // print to text file
-        else {
-            FilePrinter printOutput = new FilePrinter();
-            printOutput.Print(this);
-        }
+    @Override
+    public String toString() {
+        return output.toString();
     }
 }
