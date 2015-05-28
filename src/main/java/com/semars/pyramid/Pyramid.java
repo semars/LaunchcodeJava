@@ -1,12 +1,12 @@
-package com.pyramid;
+package com.semars.pyramid;
 
 public class Pyramid {
     private int rows;
     private StringBuilder output = new StringBuilder();
 
-    public Pyramid(int r) {
-        this.rows = r;
-        makePyramid(rows);
+    public Pyramid(int rows) {
+        this.rows = rows;
+        makePyramid(this.rows);
     }
 
     private String makePyramid(int rows) {

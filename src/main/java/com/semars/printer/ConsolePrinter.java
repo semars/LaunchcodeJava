@@ -1,6 +1,6 @@
-package com.printer;
+package com.semars.printer;
 
-import com.pyramid.Pyramid;
+import com.semars.pyramid.Pyramid;
 
 public class ConsolePrinter implements Printer {
     public void Print(Pyramid output) {

@@ -1,21 +1,25 @@
-import com.printer.ConsolePrinter;
-import com.printer.FilePrinter;
-import com.pyramid.Pyramid;
-import com.pyramid.PyramidBuilder;
+package com.semars;
+
+import com.semars.printer.ConsolePrinter;
+import com.semars.printer.FilePrinter;
+import com.semars.pyramid.Pyramid;
+import com.semars.pyramid.PyramidBuilder;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Scanner;
 
 class Mario {
 
-    private PyramidBuilder pyramidBuilder;
-
     public static void main(String[] args) {
-        Mario init = new Mario(PyramidBuilder.getInstance());
-        init.start();
+        ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
+        Mario obj = (Mario) context.getBean("mario");
+        obj.start();
     }
 
-    public Mario(PyramidBuilder pyramidBuilder)
-    {
+    private final PyramidBuilder pyramidBuilder;
+
+    public Mario(PyramidBuilder pyramidBuilder) {
         this.pyramidBuilder = pyramidBuilder;
     }
 
@@ -27,7 +31,7 @@ class Mario {
             rows = rows_scan.nextInt();
         } while (rows < 1 || rows > 23);
 
-        Pyramid outPyramid = PyramidBuilder.getInstance().pyramid(rows);
+        Pyramid outPyramid = pyramidBuilder.buildPyramid(rows);
 
         Scanner printInput_scan = new Scanner(System.in);
         int printInput;
